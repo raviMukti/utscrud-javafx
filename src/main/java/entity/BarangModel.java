@@ -4,7 +4,6 @@ import lombok.Builder;
 import lombok.Data;
 
 @Data
-@Builder
 public class BarangModel {
     // Properti untuk model Barang
     private Integer id;

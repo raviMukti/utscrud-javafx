@@ -7,6 +7,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 import service.BarangService;
 
 import java.math.BigDecimal;
@@ -62,7 +63,7 @@ public class HomeController implements Initializable {
     private TableColumn<BarangModel, String> colNamaBarang;
 
     @FXML
-    private TableColumn<BarangModel, Integer> colSatuanBarang;
+    private TableColumn<BarangModel, String> colSatuanBarang;
 
     @FXML
     private TableColumn<BarangModel, Integer> colJumlahBarang;
@@ -71,13 +72,12 @@ public class HomeController implements Initializable {
     private TableColumn<BarangModel, BigDecimal> colHargaBarang;
 
     @FXML
-    private TableColumn<BarangModel, Date> colTanggalJual;
+    private TableColumn<BarangModel, String> colTanggalJual;
 
     @FXML
-    private TableColumn<BarangModel, BigDecimal> colTotalHarga;
+    private TableColumn<BarangModel, Integer> colTotalHarga;
 
     private BarangService barangService;
-    private BarangModel barangModel;
 
     @FXML
     void btnCariDataAction(ActionEvent event) {
@@ -96,7 +96,8 @@ public class HomeController implements Initializable {
 
     @FXML
     void btnTambahAction(ActionEvent event) {
-
+        // enable filed
+        setEnableAllField();
     }
 
     @FXML
@@ -115,6 +116,8 @@ public class HomeController implements Initializable {
         comboSatuan.setValue("Pcs");
         // Panggil set disable all field untuk kondisi awal sebelum button tambah di klik
         setDisableAllField();
+        initKolom();
+        setTableBarang();
     }
 
     // Set Disable semua Field sebelum button tambah di klik
@@ -127,15 +130,43 @@ public class HomeController implements Initializable {
         pickerTanggalJual.setDisable(true);
     }
 
-    // Inisialisasi Data untuk di tampilkan
-    void initData(){
+    void setEnableAllField(){
+        fieldIdBarang.setDisable(false);
+        fieldNamaBarang.setDisable(false);
+        comboSatuan.setDisable(false);
+        fieldJumlahJual.setDisable(false);
+        fieldHargaSatuan.setDisable(false);
+        pickerTanggalJual.setDisable(false);
+    }
+
+
+    // Init kolom table
+    void initKolom(){
+        colIdBarang.setCellValueFactory(new PropertyValueFactory<BarangModel, Integer>("id"));
+        colNamaBarang.setCellValueFactory(new PropertyValueFactory<BarangModel, String>("namaBarang"));
+        colSatuanBarang.setCellValueFactory(new PropertyValueFactory<BarangModel, String>("satuan"));
+        colJumlahBarang.setCellValueFactory(new PropertyValueFactory<BarangModel, Integer>("jumlahJual"));
+        colTanggalJual.setCellValueFactory(new PropertyValueFactory<BarangModel, String>("tanggalJual"));
+        colTotalHarga.setCellValueFactory(new PropertyValueFactory<BarangModel, Integer>("totalHarga"));
+    }
+
+    // Init data ke table
+    void setTableBarang(){
+        // inisialisasi data
         SimpleDateFormat format = new SimpleDateFormat("YYYY-MM-DD");
         Date tgl = new Date();
+        ObservableList<BarangModel> lisBarangModel = FXCollections.observableArrayList();
+        BarangModel barangModel = new BarangModel();
         barangModel.setId(1);
         barangModel.setNamaBarang("Masker");
         barangModel.setSatuan("Pcs");
-        barangModel.setJumlahJual(20);
+        barangModel.setJumlahJual(10);
         barangModel.setHargaBarang(10000);
+        barangModel.setTotalHarga(100000);
         barangModel.setTanggalJual(format.format(tgl));
+        // set list barang
+        lisBarangModel.add(barangModel);
+        // set ke table
+        tableBarang.setItems(lisBarangModel);
     }
 }
