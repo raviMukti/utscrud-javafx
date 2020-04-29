@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="681.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <right>
+      <VBox prefHeight="400.0" prefWidth="129.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button fx:id="btnTambah" mnemonicParsing="false" onAction="#btnTambahAction" prefHeight="153.0" prefWidth="138.0" text="Tambah" />
+            <Button fx:id="btnHapus" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#btnHapusAction" prefHeight="153.0" prefWidth="138.0" style="-fx-background-color: #eb4034;" text="Hapus" />
+            <Button fx:id="btnUbah" layoutX="10.0" layoutY="163.0" mnemonicParsing="false" onAction="#btnUbahAction" prefHeight="153.0" prefWidth="138.0" text="Ubah" />
+            <Button fx:id="btnClear" layoutX="10.0" layoutY="316.0" mnemonicParsing="false" onAction="#btnClearAction" prefHeight="153.0" prefWidth="138.0" text="Clear" />
+         </children>
+      </VBox>
+   </right>
+   <center>
+      <SplitPane dividerPositions="0.4949748743718593" orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0" BorderPane.alignment="CENTER">
+        <items>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+               <children>
+                  <GridPane alignment="CENTER_RIGHT" layoutX="116.0" layoutY="73.0" prefHeight="194.0" prefWidth="469.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="227.0" minWidth="10.0" prefWidth="164.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="325.0" minWidth="10.0" prefWidth="305.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <Label alignment="CENTER_RIGHT" contentDisplay="CENTER" text="Id Barang" textAlignment="CENTER">
+                           <GridPane.margin>
+                              <Insets left="30.0" />
+                           </GridPane.margin>
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label alignment="CENTER_RIGHT" contentDisplay="CENTER" text="Nama Barang" textAlignment="CENTER" GridPane.rowIndex="1">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                           <GridPane.margin>
+                              <Insets left="30.0" />
+                           </GridPane.margin>
+                        </Label>
+                        <Label alignment="CENTER_RIGHT" contentDisplay="CENTER" text="Satuan" textAlignment="CENTER" GridPane.rowIndex="2">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                           <GridPane.margin>
+                              <Insets left="30.0" />
+                           </GridPane.margin>
+                        </Label>
+                        <Label alignment="CENTER_RIGHT" contentDisplay="CENTER" layoutX="40.0" layoutY="114.0" text="Jumlah Jual" textAlignment="CENTER" GridPane.rowIndex="3">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                           <GridPane.margin>
+                              <Insets left="30.0" />
+                           </GridPane.margin>
+                        </Label>
+                        <Label alignment="CENTER_RIGHT" contentDisplay="CENTER" layoutX="40.0" layoutY="159.0" text="Harga Satuan" textAlignment="CENTER" GridPane.rowIndex="4">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                           <GridPane.margin>
+                              <Insets left="30.0" />
+                           </GridPane.margin>
+                        </Label>
+                        <Label alignment="CENTER_RIGHT" contentDisplay="CENTER" layoutX="40.0" layoutY="204.0" text="Tanggal Jual" textAlignment="CENTER" GridPane.rowIndex="5">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                           <GridPane.margin>
+                              <Insets left="30.0" />
+                           </GridPane.margin>
+                        </Label>
+                        <TextField fx:id="fieldIdBarang" GridPane.columnIndex="1">
+                           <GridPane.margin>
+                              <Insets left="10.0" right="10.0" />
+                           </GridPane.margin>
+                        </TextField>
+                        <TextField fx:id="fieldNamaBarang" layoutX="184.0" layoutY="20.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                           <GridPane.margin>
+                              <Insets left="10.0" right="10.0" />
+                           </GridPane.margin>
+                        </TextField>
+                        <ComboBox fx:id="comboSatuan" prefHeight="25.0" prefWidth="288.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                           <GridPane.margin>
+                              <Insets left="10.0" right="10.0" />
+                           </GridPane.margin>
+                        </ComboBox>
+                        <TextField fx:id="fieldJumlahJual" layoutX="184.0" layoutY="65.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                           <GridPane.margin>
+                              <Insets left="10.0" right="10.0" />
+                           </GridPane.margin>
+                        </TextField>
+                        <TextField fx:id="fieldHargaSatuan" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                           <GridPane.margin>
+                              <Insets left="10.0" right="10.0" />
+                           </GridPane.margin>
+                        </TextField>
+                        <DatePicker fx:id="pickerTanggalJual" prefHeight="25.0" prefWidth="292.0" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                           <GridPane.margin>
+                              <Insets left="10.0" right="10.0" />
+                           </GridPane.margin>
+                        </DatePicker>
+                     </children>
+                  </GridPane>
+               </children>
+            </AnchorPane>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+               <children>
+                  <SplitPane dividerPositions="0.17857142857142858" layoutX="130.0" layoutY="-2.0" orientation="VERTICAL" prefHeight="198.0" prefWidth="469.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <items>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+                           <children>
+                              <TextField fx:id="fieldCariData" layoutX="173.0" layoutY="11.0" prefHeight="25.0" prefWidth="206.0" />
+                              <Button fx:id="btnCariData" layoutX="395.0" layoutY="11.0" mnemonicParsing="false" onAction="#btnCariDataAction" prefHeight="25.0" prefWidth="64.0" text="Cari" />
+                              <Label alignment="CENTER_RIGHT" contentDisplay="CENTER" layoutX="31.0" layoutY="15.0" text="Cari Data" textAlignment="CENTER">
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </AnchorPane>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+                           <children>
+                              <TableView fx:id="tableBarang" layoutX="101.0" prefHeight="220.0" prefWidth="467.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                <columns>
+                                  <TableColumn fx:id="colIdBarang" prefWidth="32.0" text="ID" />
+                                  <TableColumn fx:id="colNamaBarang" prefWidth="149.0" text="Nama" />
+                                    <TableColumn fx:id="colSatuanBarang" prefWidth="57.0" text="Satuan" />
+                                    <TableColumn fx:id="colJumlahBarang" prefWidth="58.0" text="Jumlah" />
+                                    <TableColumn fx:id="colHargaBarang" prefWidth="94.0" text="Harga" />
+                                    <TableColumn fx:id="colTanggalJual" prefWidth="86.0" text="Tgl Jual" />
+                                    <TableColumn fx:id="colTotalHarga" prefWidth="71.0" text="Total Harga" />
+                                </columns>
+                              </TableView>
+                           </children>
+                        </AnchorPane>
+                    </items>
+                  </SplitPane>
+               </children>
+            </AnchorPane>
+        </items>
+      </SplitPane>
+   </center>
+</BorderPane>
